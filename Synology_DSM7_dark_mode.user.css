@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         Synology DSM 7 Dark Mode
 @namespace    github.com/viciousnemesis/Synology_DSM7_dark_mode
-@version      0.0.5
+@version      0.0.6
 @homepageURL  https://github.com/viciousnemesis/Synology_DSM7_dark_mode/
 @updateURL    https://github.com/viciousnemesis/Synology_DSM7_dark_mode/raw/main/Synology_DSM7_dark_mode.user.css
 @license      GPLv3
@@ -66,7 +66,6 @@
         background: var(--color_button_hover) !important;
     }
     .taskbar-button:hover {
-        background-image: url("webman/modules/AdminCenter/images/1x/ControlPanel_24.png?v=64570-s1") !important;
         background-position: center !important;
         background-repeat: no-repeat !important;
     }
