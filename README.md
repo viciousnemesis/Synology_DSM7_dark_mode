@@ -11,10 +11,12 @@ UserCSS dark mode theme for Synology's DSM 7 operating system.
    - [https://github.com/viciousnemesis/Synology_DSM7_dark_mode/raw/main/Synology_DSM7_dark_mode.user.css](https://github.com/viciousnemesis/Synology_DSM7_dark_mode/raw/main/Synology_DSM7_dark_mode.user.css)
 3. Click on Install Style:
    - ![image](https://github.com/viciousnemesis/Synology_DSM7_dark_mode/assets/48156622/f8cf79f8-e30a-47a2-ad9c-1edc68572810)
-4. Settings -> Update "Custom included sites" with your local DSM IP address
-   - ![image](https://github.com/viciousnemesis/Synology_DSM7_dark_mode/assets/48156622/fb3ff01e-39fc-4c4f-8e53-b0fce662a382)
-5. [Optional] - Update color themes to your preferences. These changes are local, and won't interfer with updates.
+4. Update DSM url:
+   - Stylus -> Manage -> Settings -> synology_url -> set to your Synology's URL (e.g. https://192.168.xxx.yyy:5001/) -> Save
    - ![image](https://github.com/viciousnemesis/Synology_DSM7_dark_mode/assets/48156622/56d9d94b-c02c-438c-b9c7-668021fd2c81)
+   - ![image](https://github.com/viciousnemesis/Synology_DSM7_dark_mode/assets/48156622/4abd6e26-731f-4976-a2a8-88d3b14367a4)
+   - ![image](https://github.com/viciousnemesis/Synology_DSM7_dark_mode/assets/48156622/3c716b60-c5c7-489a-a419-be9b038aad4c)
+6. [Optional] - Update color themes to your preferences. These changes are local, and won't interfer with updates.
    - ![image](https://github.com/viciousnemesis/Synology_DSM7_dark_mode/assets/48156622/e9df5ef9-5d6c-4830-a132-a5955f5da8e9)
 
 # Update
