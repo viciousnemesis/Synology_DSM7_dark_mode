@@ -1,13 +1,13 @@
 /* ==UserStyle==
 @name         Synology DSM 7 Dark Mode
 @namespace    github.com/viciousnemesis/Synology_DSM7_dark_mode
-@version      0.0.4
+@version      0.0.5
 @homepageURL  https://github.com/viciousnemesis/Synology_DSM7_dark_mode/
 @updateURL    https://github.com/viciousnemesis/Synology_DSM7_dark_mode/raw/main/Synology_DSM7_dark_mode.user.css
 @license      GPLv3
-@preprocessor default
 @author       Brandon Smith
 
+@var text synology_url "synology_url" "https://192.168.xxx.yyy:5001/"
 
 @var color color_background "color_background" #1e1e1e
 @var color color_window_header "color_window_header" #000
@@ -23,157 +23,165 @@
 @var color color_theme_hover "color_theme_hover" #5493db
 @var color color_notification "color_notification" #00ffe5
 
+@preprocessor uso
+
 ==/UserStyle== */
 
-:root{
-    --color_background: #1e1e1e;
-    --color_window_header: #000;
-    --color_window_background: #000;
-    --color_background_dark: #000;
-    --color_text_primary: #FFF;
-    --color_text_subdued: #999;
-    --color_button: #000;
-    --color_button_hover: #5493db;
-    --color_button_selected: #0555b0;
-    --color_button_activated: #2b4159;
-    --color_theme: #0555b0;
-    --color_theme_hover: #5493db;
-    --color_notification: #00ffe5;
-}
+
+@-moz-document url-prefix(/*[[synology_url]]*/) {
+    :root {
+        --color_background: #1e1e1e;
+        --color_window_header: #000;
+        --color_window_background: #000;
+        --color_background_dark: #000;
+        --color_text_primary: #FFF;
+        --color_text_subdued: #999;
+        --color_button: #000;
+        --color_button_hover: #5493db;
+        --color_button_selected: #0555b0;
+        --color_button_activated: #2b4159;
+        --color_theme: #0555b0;
+        --color_theme_hover: #5493db;
+        --color_notification: #00ffe5;
+    }
 
 
+    div:not([class$="button"]):not([style*="image"]) {
+        background: var(--color_background);
+        color: var(--color_text_primary);
+    }
+    .module-item:hover {
+        background: var(--color_button_hover) !important;
+    }
 
-div:not([class$="button"]):not([style*="image"]){
-    background: var(--color_background);
-    color: var(--color_text_primary);
-}
-.module-item:hover{
-    background: var(--color_button_hover) !important;
-}
+    .module-item:hover *:not([class*="button"]):not([style*="image"]) {
+        background: var(--color_button_hover) !important;
+    }
 
-.module-item:hover *:not([class*="button"]):not([style*="image"]){
-    background: var(--color_button_hover) !important;
-}
+    div[class$="button"]:hover {
+        background: var(--color_button_hover);
+    }
 
-div[class$="button"]:hover {
-    background: var(--color_button_hover);   
-}
+    .show-all-button:hover {
+        background: var(--color_button_hover) !important;
+    }
+    .taskbar-button:hover {
+        background-image: url("webman/modules/AdminCenter/images/1x/ControlPanel_24.png?v=64570-s1") !important;
+        background-position: center !important;
+        background-repeat: no-repeat !important;
+    }
 
-.show-all-button:hover {
-    background: var(--color_button_hover) !important;   
-}
-.taskbar-button:hover {
-    background-image: url("webman/modules/AdminCenter/images/1x/ControlPanel_24.png?v=64570-s1") !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-}
+    .tray-item.system {
+        height: 24px !important;
+        width: 24px !important;
+        margin: 7px 8px 0px 8px !important;
+        background-position: 0px !important;
+        background-size: contain !important;
+    }
 
-.tray-item.system {
-    height: 24px !important;
-    width: 24px !important;
-    margin: 7px 8px 0px 8px !important;
-    background-position: 0px !important;   
-    background-size: contain !important;
-}
+    .notify-button {
+        /* Would love to extract color to var(--color_button)*/
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 512 512'%3E%3C!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --%3E%3Cstyle%3Esvg%7Bfill:%23aaa%7D%3C/style%3E%3Cpath d='M256 448c141.4 0 256-93.1 256-208S397.4 32 256 32S0 125.1 0 240c0 45.1 17.7 86.8 47.7 120.9c-1.9 24.5-11.4 46.3-21.4 62.9c-5.5 9.2-11.1 16.6-15.2 21.6c-2.1 2.5-3.7 4.4-4.9 5.7c-.6 .6-1 1.1-1.3 1.4l-.3 .3 0 0 0 0 0 0 0 0c-4.6 4.6-5.9 11.4-3.4 17.4c2.5 6 8.3 9.9 14.8 9.9c28.7 0 57.6-8.9 81.6-19.3c22.9-10 42.4-21.9 54.3-30.6c31.8 11.5 67 17.9 104.1 17.9zM128 208a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm128 0a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm96 32a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z'/%3E%3C/svg%3E") !important;
+    }
 
-.notify-button {  
-    /* Would love to extract color to var(--color_button)*/
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 512 512'%3E%3C!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --%3E%3Cstyle%3Esvg%7Bfill:%23aaa%7D%3C/style%3E%3Cpath d='M256 448c141.4 0 256-93.1 256-208S397.4 32 256 32S0 125.1 0 240c0 45.1 17.7 86.8 47.7 120.9c-1.9 24.5-11.4 46.3-21.4 62.9c-5.5 9.2-11.1 16.6-15.2 21.6c-2.1 2.5-3.7 4.4-4.9 5.7c-.6 .6-1 1.1-1.3 1.4l-.3 .3 0 0 0 0 0 0 0 0c-4.6 4.6-5.9 11.4-3.4 17.4c2.5 6 8.3 9.9 14.8 9.9c28.7 0 57.6-8.9 81.6-19.3c22.9-10 42.4-21.9 54.3-30.6c31.8 11.5 67 17.9 104.1 17.9zM128 208a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm128 0a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm96 32a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z'/%3E%3C/svg%3E") !important;
-    
-}
+    .notify-button:hover {
+        /* Would love to extract color to var(--color_button_hover)*/
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 512 512'%3E%3C!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --%3E%3Cstyle%3Esvg%7Bfill:%235493db%7D%3C/style%3E%3Cpath d='M256 448c141.4 0 256-93.1 256-208S397.4 32 256 32S0 125.1 0 240c0 45.1 17.7 86.8 47.7 120.9c-1.9 24.5-11.4 46.3-21.4 62.9c-5.5 9.2-11.1 16.6-15.2 21.6c-2.1 2.5-3.7 4.4-4.9 5.7c-.6 .6-1 1.1-1.3 1.4l-.3 .3 0 0 0 0 0 0 0 0c-4.6 4.6-5.9 11.4-3.4 17.4c2.5 6 8.3 9.9 14.8 9.9c28.7 0 57.6-8.9 81.6-19.3c22.9-10 42.4-21.9 54.3-30.6c31.8 11.5 67 17.9 104.1 17.9zM128 208a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm128 0a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm96 32a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z'/%3E%3C/svg%3E")!important;
+    }
+    .user-button {
+        /* Would love to extract color to var(--color_button)*/
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 448 512'%3E%3C!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --%3E%3Cstyle%3Esvg%7Bfill:%23aaa%7D%3C/style%3E%3Cpath d='M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z'/%3E%3C/svg%3E") !important;
+    }
 
-.notify-button:hover {      
-    /* Would love to extract color to var(--color_button_hover)*/
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 512 512'%3E%3C!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --%3E%3Cstyle%3Esvg%7Bfill:%235493db%7D%3C/style%3E%3Cpath d='M256 448c141.4 0 256-93.1 256-208S397.4 32 256 32S0 125.1 0 240c0 45.1 17.7 86.8 47.7 120.9c-1.9 24.5-11.4 46.3-21.4 62.9c-5.5 9.2-11.1 16.6-15.2 21.6c-2.1 2.5-3.7 4.4-4.9 5.7c-.6 .6-1 1.1-1.3 1.4l-.3 .3 0 0 0 0 0 0 0 0c-4.6 4.6-5.9 11.4-3.4 17.4c2.5 6 8.3 9.9 14.8 9.9c28.7 0 57.6-8.9 81.6-19.3c22.9-10 42.4-21.9 54.3-30.6c31.8 11.5 67 17.9 104.1 17.9zM128 208a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm128 0a32 32 0 1 1 0 64 32 32 0 1 1 0-64zm96 32a32 32 0 1 1 64 0 32 32 0 1 1 -64 0z'/%3E%3C/svg%3E")!important;
-}
-.user-button {  
-    /* Would love to extract color to var(--color_button)*/
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 448 512'%3E%3C!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --%3E%3Cstyle%3Esvg%7Bfill:%23aaa%7D%3C/style%3E%3Cpath d='M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z'/%3E%3C/svg%3E") !important;        
-}
+    .user-button:hover {
+        /* Would love to extract color to var(--color_button_hover)*/
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 448 512'%3E%3C!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --%3E%3Cstyle%3Esvg%7Bfill:%235493db%7D%3C/style%3E%3Cpath d='M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z'/%3E%3C/svg%3E") !important;
+    }
 
-.user-button:hover {      
-    /* Would love to extract color to var(--color_button_hover)*/
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 448 512'%3E%3C!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --%3E%3Cstyle%3Esvg%7Bfill:%235493db%7D%3C/style%3E%3Cpath d='M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z'/%3E%3C/svg%3E") !important;
-}
+    .widget-button {
+        /* Would love to extract color to var(--color_button)*/
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 576 512'%3E%3C!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --%3E%3Cstyle%3Esvg%7Bfill:%23aaa%7D%3C/style%3E%3Cpath d='M0 80C0 53.5 21.5 32 48 32h96c26.5 0 48 21.5 48 48V96H384V80c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H432c-26.5 0-48-21.5-48-48V160H192v16c0 1.7-.1 3.4-.3 5L272 288h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H272c-26.5 0-48-21.5-48-48V336c0-1.7 .1-3.4 .3-5L144 224H48c-26.5 0-48-21.5-48-48V80z'/%3E%3C/svg%3E") !important;
+    }
 
-.widget-button {  
-    /* Would love to extract color to var(--color_button)*/
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 576 512'%3E%3C!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --%3E%3Cstyle%3Esvg%7Bfill:%23aaa%7D%3C/style%3E%3Cpath d='M0 80C0 53.5 21.5 32 48 32h96c26.5 0 48 21.5 48 48V96H384V80c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H432c-26.5 0-48-21.5-48-48V160H192v16c0 1.7-.1 3.4-.3 5L272 288h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H272c-26.5 0-48-21.5-48-48V336c0-1.7 .1-3.4 .3-5L144 224H48c-26.5 0-48-21.5-48-48V80z'/%3E%3C/svg%3E") !important;
-    
-}
+    .widget-button:hover {
+        /* Would love to extract color to var(--color_button_hover)*/
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 576 512'%3E%3C!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --%3E%3Cstyle%3Esvg%7Bfill:%235493db%7D%3C/style%3E%3Cpath d='M0 80C0 53.5 21.5 32 48 32h96c26.5 0 48 21.5 48 48V96H384V80c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H432c-26.5 0-48-21.5-48-48V160H192v16c0 1.7-.1 3.4-.3 5L272 288h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H272c-26.5 0-48-21.5-48-48V336c0-1.7 .1-3.4 .3-5L144 224H48c-26.5 0-48-21.5-48-48V80z'/%3E%3C/svg%3E") !important;
+    }
 
-.widget-button:hover {      
-    /* Would love to extract color to var(--color_button_hover)*/
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 576 512'%3E%3C!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --%3E%3Cstyle%3Esvg%7Bfill:%235493db%7D%3C/style%3E%3Cpath d='M0 80C0 53.5 21.5 32 48 32h96c26.5 0 48 21.5 48 48V96H384V80c0-26.5 21.5-48 48-48h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H432c-26.5 0-48-21.5-48-48V160H192v16c0 1.7-.1 3.4-.3 5L272 288h96c26.5 0 48 21.5 48 48v96c0 26.5-21.5 48-48 48H272c-26.5 0-48-21.5-48-48V336c0-1.7 .1-3.4 .3-5L144 224H48c-26.5 0-48-21.5-48-48V80z'/%3E%3C/svg%3E") !important;
-}
+    .search-button {
+        /* Would love to extract color to var(--color_button)*/
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 512 512'%3E%3C!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --%3E%3Cstyle%3Esvg%7Bfill:%23aaa%7D%3C/style%3E%3Cpath d='M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z'/%3E%3C/svg%3E") !important;
+    }
 
-.search-button {  
-    /* Would love to extract color to var(--color_button)*/
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 512 512'%3E%3C!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --%3E%3Cstyle%3Esvg%7Bfill:%23aaa%7D%3C/style%3E%3Cpath d='M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z'/%3E%3C/svg%3E") !important;
-    
-}
-
-.search-button:hover {      
-    /* Would love to extract color to var(--color_button_hover)*/
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 512 512'%3E%3C!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --%3E%3Cstyle%3Esvg%7Bfill:%235493db%7D%3C/style%3E%3Cpath d='M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z'/%3E%3C/svg%3E") !important;
-}
+    .search-button:hover {
+        /* Would love to extract color to var(--color_button_hover)*/
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' height='1em' viewBox='0 0 512 512'%3E%3C!--! Font Awesome Free 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --%3E%3Cstyle%3Esvg%7Bfill:%235493db%7D%3C/style%3E%3Cpath d='M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z'/%3E%3C/svg%3E") !important;
+    }
 
 
-.window-header-tool-wrapper i:hover * {    
-    fill: var(--color_button_hover) !important;
-}
-*::placeholder{
-    color: var(--color_text_primary) !important;
-}
-div[class*="search"] .input-wrapper * {
-    color: var(--color_text_primary);
-}
-div[class*="search"]:hover {
-    border-color: var(--color_button_hover);
-}
-div[class*="search"].focused .input-wrapper * {
-    fill: var(--color_button_hover) !important; 
-}
-.not-found {
-    color: var(--color_text_primary) !important;    
-}
+    .window-header-tool-wrapper i:hover * {
+        fill: var(--color_button_hover) !important;
+    }
+    *::placeholder {
+        color: var(--color_text_primary) !important;
+    }
+    div[class*="search"] .input-wrapper * {
+        color: var(--color_text_primary);
+    }
+    div[class*="search"]:hover {
+        border-color: var(--color_button_hover);
+    }
+    div[class*="search"].focused .input-wrapper * {
+        fill: var(--color_button_hover) !important;
+    }
+    .not-found {
+        color: var(--color_text_primary) !important;
+    }
 
-.notify-badge{    
-    background: var(--color_notification) !important;
-}
+    .notify-badge {
+        background: var(--color_notification) !important;
+    }
 
-.x-tab-strip-active, .x-tree-selected, .child-item.activated, .child-item.activated .option-title {    
-    background: var(--color_button_activated) !important;
-}
-.x-tree-selected:hover, li:hover, .child-item:hover, .child-item:hover .option-title {    
-    background: var(--color_button_hover) !important;
-}
-.x-tab-strip-active::before{        
-    background: var(--color_button_selected) !important;
-}
-.x-panel-bwrap > .x-panel-body > div:last-child{  
-    background: var(--color_window_background) !important; 
-    opacity: 90%;
-}
-.info-list-table{    
-    background: var(--color_window_background);    
-}
-div[class*="-msg"]{
-    background: var(--color_window_background) !important;
-}
-div[class*="-msg"] *{
-    background: var(--color_window_background) !important;
-    color: var(--color_text_primary) !important;
-}
-canvas{  
-    filter: opacity(60%) contrast(120%)  saturate(300%) grayscale(70%) saturate(300%) !important;
-}
+    .x-tab-strip-active,
+    .x-tree-selected,
+    .child-item.activated,
+    .child-item.activated .option-title {
+        background: var(--color_button_activated) !important;
+    }
+    .x-tree-selected:hover,
+    li:hover,
+    .child-item:hover,
+    .child-item:hover .option-title {
+        background: var(--color_button_hover) !important;
+    }
+    .x-tab-strip-active::before {
+        background: var(--color_button_selected) !important;
+    }
+    .x-panel-bwrap > .x-panel-body > div:last-child {
+        background: var(--color_window_background) !important;
+        opacity: 90%;
+    }
+    .info-list-table {
+        background: var(--color_window_background);
+    }
+    div[class*="-msg"] {
+        background: var(--color_window_background) !important;
+    }
+    div[class*="-msg"] * {
+        background: var(--color_window_background) !important;
+        color: var(--color_text_primary) !important;
+    }
+    canvas {
+        filter: opacity(60%) contrast(120%) saturate(300%) grayscale(70%) saturate(300%) !important;
+    }
 
 
-.launch-icon:hover, .launch-icon:hover .text {
-    background: var(--color_button_hover) !important;   
-}
+    .launch-icon:hover,
+    .launch-icon:hover .text {
+        background: var(--color_button_hover) !important;
+    }
 
-*{
-    color: var(--color_text_primary) !important;
+    * {
+        color: var(--color_text_primary) !important;
+    }
 }
