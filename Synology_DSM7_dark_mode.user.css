@@ -1,7 +1,7 @@
 /* ==UserStyle==
 @name         Synology DSM 7 Dark Mode
 @namespace    github.com/viciousnemesis/Synology_DSM7_dark_mode
-@version      0.0.3
+@version      0.0.4
 @homepageURL  https://github.com/viciousnemesis/Synology_DSM7_dark_mode/
 @updateURL    https://github.com/viciousnemesis/Synology_DSM7_dark_mode/raw/main/Synology_DSM7_dark_mode.user.css
 @license      GPLv3
@@ -9,19 +9,19 @@
 @author       Brandon Smith
 
 
-@var color color_background "color_background" #1e1e1e;
-@var color color_window_header "color_window_header" #000;
-@var color color_window_background "color_window_background" #000;
-@var color color_background_dark "color_background_dark" #000;
-@var color color_text_primary "color_text_primary" #FFF;
-@var color color_text_subdued "color_text_subdued" #999;
-@var color color_button "color_button" #000;
-@var color color_button_hover "color_button_hover" #5493db;
-@var color color_button_selected "color_button_selected" #0555b0;
-@var color color_button_activated "color_button_activated" #2b4159;
-@var color color_theme "color_theme" #0555b0;
-@var color color_theme_hover "color_theme_hover" #5493db;
-@var color color_notification "color_notification" #00ffe5;
+@var color color_background "color_background" #1e1e1e
+@var color color_window_header "color_window_header" #000
+@var color color_window_background "color_window_background" #000
+@var color color_background_dark "color_background_dark" #000
+@var color color_text_primary "color_text_primary" #FFF
+@var color color_text_subdued "color_text_subdued" #999
+@var color color_button "color_button" #000
+@var color color_button_hover "color_button_hover" #5493db
+@var color color_button_selected "color_button_selected" #0555b0
+@var color color_button_activated "color_button_activated" #2b4159
+@var color color_theme "color_theme" #0555b0
+@var color color_theme_hover "color_theme_hover" #5493db
+@var color color_notification "color_notification" #00ffe5
 
 ==/UserStyle== */
 
