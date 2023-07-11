@@ -37,6 +37,8 @@ UserCSS dark mode theme for Synology's DSM 7 operating system.
    - Install:
       - ![image](https://github.com/viciousnemesis/Synology_DSM7_dark_mode/assets/48156622/def87f84-08f1-4369-a35e-76b55513ede9)
 
+# Issues / Requests
+Please search to see if there is already an [issue](https://github.com/viciousnemesis/Synology_DSM7_dark_mode/issues). If not, please file one. Be sure to include as much information as possible (DSM version, application, screenshots, label).
 
 
 
